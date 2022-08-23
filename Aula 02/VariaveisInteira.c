@@ -6,7 +6,7 @@ int main (void){
 	int n1 = 20;
 	printf("Valor de n1 = %d \n",n1);
 	
-	n1 = 50;
+	n1 = 50; //Atribuindo valor 50 para n1
 	printf("Valor de n1 = %d \n",n1);
 	
 	system("pause");
