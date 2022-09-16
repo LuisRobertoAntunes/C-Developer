@@ -19,6 +19,7 @@ Aluno cadastrar();
 void exibir(Aluno vet[],int qtde);
 void porcentagem(Aluno vet[],int qtde);
 void porcentagem_sexo(Aluno vet[],int qtde);
+void exibirIdade(Aluno vet[],int qtde);
 
 
 int main (){
@@ -63,6 +64,10 @@ int main (){
 				printf("Nao ha dados armazenados!\n");
 				break;
 			case 5:
+				if(i!=0)
+				exibirIdade(a,i);
+				else
+				printf("Nao ha dados armazenados!\n");
 				break;
 			case 6:
 				exit(1);
@@ -198,5 +203,21 @@ void porcentagem_sexo(Aluno vet[],int qtde){
 	printf("Porcentagem de Aluno Sexo Feminino: %.2f%%\n",porcfem);
 	
 }
+void exibirIdade(Aluno vet[],int qtde){
+	int i,idade[MAX];
+	float totalIdade;
+	for(i=0;i<qtde;i++){
+		printf("Ano de Nascimento: %i\n",vet[i].anoNascimento);
+		idade[i] = 2022 - vet[i].anoNascimento ;  
+		printf("Idade: %i\n", idade[i]);
+		totalIdade = totalIdade + idade[i];
+	}
+	totalIdade = totalIdade / i;
+	printf("Media das Idades dos Alunos e: %.1f\n",totalIdade);
+	
+	
+}
+
+
 
 
