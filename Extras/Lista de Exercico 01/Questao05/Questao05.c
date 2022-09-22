@@ -1,5 +1,5 @@
 #include<stdio.h>
-#define MAX 500
+#define MAX 5000
 
 struct Secretaria_de_Transportes{
     char proprietario[25];
@@ -15,6 +15,8 @@ typedef struct Secretaria_de_Transportes Veiculos;
 
 Veiculos cadastrar();
 void exibir(Veiculos vet[],int qtde);
+void Proprietario(Veiculos vet[],int qtde);
+void Troca(Veiculos vet[],int qtde);
 
 
 
@@ -27,7 +29,9 @@ int main (){
 		printf("============== MENU ==============\n");
 		printf("1 - Cadastrar: \n");
 		printf("2 - Exibir todos Cadastros:\n");
-		printf("3 - Sair\n");
+		printf("3 - Exibir proprietarios carros a Diesel:\n");
+		printf("4 - Troca:\n");
+		printf("5 - Sair\n");
 		scanf("%i",&op);
 		
 		switch(op){
@@ -45,6 +49,18 @@ int main (){
 					printf("Nao ha dados armazenados!\n");
 				break;
 			case 3:
+				if(i!=0)
+					Proprietario(a,i); //A = vetor i= Quatidade de elementos armazenados
+				else
+					printf("Nao ha dados armazenados!\n");
+				break;
+			case 4:
+				if(i!=0)
+					Troca(a,i); //A = vetor i= Quatidade de elementos armazenados
+				else
+					printf("Nao ha dados armazenados!\n");
+				break;
+			case 5:
 				exit(1);
 				break;
 		}
@@ -57,7 +73,7 @@ int main (){
 
 Veiculos cadastrar(){
 	Veiculos al;
-	
+	/*
 	printf("Digite o Nome do Proprietario:\n");
 	fflush(stdin);
 	gets(al.proprietario);
@@ -76,14 +92,14 @@ Veiculos cadastrar(){
 	printf("Digite o Numero do Chassi do Veiculo:\n");
 	fflush(stdin);
 	gets(al.chassi);
-
+	
 	printf("Digite o Ano do Veiculo:\n");
 	scanf("%i",&al.ano);
-	
+	*/
 	printf("Digite a Placa do Veiculo:\n");
 	fflush(stdin);
 	gets(al.placa);
-
+	
 	return al;	
 	 
 }
@@ -104,9 +120,30 @@ void exibir(Veiculos vet[],int qtde){
 		printf("Cor do Veiculo: %s\n",vet[i].cor);
 		printf("Numero do Chassi: %s\n",vet[i].chassi);
 		printf("Ano do Veiculo: %i\n",vet[i].ano);
-		printf("Placa do Veiculo: %s\n",vet[i].placa);
+		printf("Placa do Veiculo: %s\n\n",vet[i].placa);
 		
 	}
 }
-
+void Proprietario(Veiculos vet[],int qtde){
+	int i;
+	for(i=0;i<qtde;i++){
+		if(vet[i].combustivel == 2 && vet[i].ano >= 2010)
+            printf("Nome: %s\n",vet[i].proprietario);	
+	}
+}
+void Troca(Veiculos vet[],int qtde){
+	int i;
+	char nome[25];
+	
+	printf("Digite o Nome do Proprietario:\n");
+	fflush(stdin);
+	gets(nome);
+	
+	printf("Nome: %s\n",nome);
+	
+	for(i=0;i<qtde;i++){
+		if(vet[i].combustivel == 2 && vet[i].ano >= 2010)
+            printf("Nome: %s\n",vet[i].proprietario);	
+	}
+}
 
